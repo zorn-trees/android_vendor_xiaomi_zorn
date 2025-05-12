@@ -259,6 +259,12 @@ on boot
     chown system system /proc/mi_log/delay
     # END Performance_LogEnhance
 
+    # MIUI ADD: Performance_UnfairMem
+    chmod 0666 /dev/mi_mem_engine
+    chown system root /proc/mi_mem_engine/scene_tid
+    chmod 0664 /dev/mi_mem_engine/scene_tid
+    # END Performance_UnfairMem
+
     # Create directory used for display
     # for backward compatibility
     mkdir /persist/display 0770 system graphics

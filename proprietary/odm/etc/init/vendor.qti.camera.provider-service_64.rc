@@ -16,6 +16,7 @@ service vendor.camera-provider /odm/bin/hw/vendor.qti.camera.provider-service_64
     interface vendor.xiaomi.hardware.bgservice@1.0::IBGService default
     interface aidl vendor.xiaomi.hardware.aon.IAlwaysOn/miaonservicehal
     interface aidl vendor.xiaomi.hardware.aidlbgservice.IBGService/default
+    interface aidl vendor.xiaomi.hardware.aidl.intentaware.IIntentAwareService/default
     class hal
     user cameraserver
     group system audio camera input drmrpc oem_2907 oem_2912 wakelock
@@ -28,11 +29,12 @@ service vendor.camera-provider /odm/bin/hw/vendor.qti.camera.provider-service_64
 
 on boot
     chown cameraserver camera /sys/module/camera/parameters/cam_event_inject
+    chown cameraserver camera /sys/module/camera/parameters/cam_cci_io_protect
     chmod 0664 /sys/kernel/reserve_pool/config
     chmod 0666 /sys/power/wake_lock
     chmod 0666 /sys/power/wake_unlock
-
-# MIUI ADD: Camera_PerformanceEnhance
-on property:persist.vendor.camera.TriggerSimpleperf=1 && property:persist.vendor.camera.SimpleperfDebug=1
-  exec_background system/xbin/su -c "/system/bin/simpleperf record -p ${persist.vendor.camera.TriggerSimpleperfPid} --call-graph fp --duration 5 -o /data/vendor/camera/offlinelog/${persist.vendor.camera.TriggerSimpleperfPid}_${persist.vendor.camera.TriggerSimpleperfTime}_perf.data"
-# END Camera_PerformanceEnhance
+    chmod u+xwr /data/vendor/camera
+    chown camera camera /data/vendor/camera/hook.db
+    chmod u+xwr /data/vendor/camera/hook.db
+    setprop persist.vendor.camera.firstBoot 1
+    setprop persist.vendor.camera.immunesystem.protection.switch true

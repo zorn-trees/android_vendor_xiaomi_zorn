@@ -36,14 +36,14 @@ rev=`cat /sys/devices/soc0/revision`
 # Long running RT task detection is confined to consolidated builds.
 # Set RT throttle runtime to 50ms more than long running RT
 # task detection time.
-# Set RT throttle runtime 81% of RT throttle period.
+# Set RT throttle runtime 92% of RT throttle period.
 long_running_rt_task_ms=1200
 sched_rt_runtime_ms=`expr $long_running_rt_task_ms + 50`
 sched_rt_runtime_us=`expr $sched_rt_runtime_ms \* 1000`
 sched_rt_period_ms=`expr $sched_rt_runtime_ms + 100`
 sched_rt_period_us=`expr $sched_rt_period_ms \* 1000`
 echo $sched_rt_period_us > /proc/sys/kernel/sched_rt_period_us
-echo 1093000 > /proc/sys/kernel/sched_rt_runtime_us
+echo 1250000 > /proc/sys/kernel/sched_rt_runtime_us
 
 if [ -d /proc/sys/walt ]; then
 	# configure maximum frequency when CPUs are partially halted
@@ -344,7 +344,12 @@ verify_pasr_support()
 enable_thp()
 {
 	# Enable THP
-	echo always > /sys/kernel/mm/transparent_hugepage/enabled
+	ProductName=`getprop ro.product.name`
+	if [ "$ProductName" == "zorn" ]; then
+		echo never > /sys/kernel/mm/transparent_hugepage/enabled
+	else
+		echo always > /sys/kernel/mm/transparent_hugepage/enabled
+	fi
 
 	MemTotalStr=`cat /proc/meminfo | grep MemTotal`
 	MemTotal=${MemTotalStr:16:8}

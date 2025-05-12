@@ -6,6 +6,7 @@ on post-fs-data
     mkdir /data/vendor/mqsas_common 0771 system system
     mkdir /data/vendor/touch 0771 system system
     mkdir /data/vendor/touch_state 0771 system system
+    mkdir /mnt/vendor/persist/touch 0775 system system
 on boot
     chown system system /dev/xiaomi-touch
     chmod 0666 /dev/xiaomi-touch

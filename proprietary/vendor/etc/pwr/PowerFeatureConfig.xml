@@ -20,7 +20,7 @@
     </Feature>
     <Feature>
         <Name>VideoPowerOptFeature</Name>
-        <Enable>0</Enable>
+        <Enable>1</Enable>
     </Feature>
     <Feature>
         <Name>StandbyFeature</Name>
