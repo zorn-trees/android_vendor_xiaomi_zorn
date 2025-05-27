@@ -22929,31 +22929,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.xiaomi.hardware.fx.tunnel-V1-ndk",
-    owner: "xiaomi",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/vendor.xiaomi.hardware.fx.tunnel-V1-ndk.so",
-            ],
-            shared_libs: [
-                "libbinder_ndk",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
     name: "vendor.xiaomi.hardware.mfidoca-V1-ndk_platform",
     owner: "xiaomi",
     strip: {
@@ -26592,15 +26567,6 @@ prebuilt_etc_xml {
     name: "android.hardware.gnss-aidl-service-qti.xml",
     owner: "xiaomi",
     src: "proprietary/odm/etc/vintf/manifest/android.hardware.gnss-aidl-service-qti.xml",
-    filename_from_src: true,
-    sub_dir: "vintf/manifest",
-    device_specific: true,
-}
-
-prebuilt_etc_xml {
-    name: "fod-aidl.xml",
-    owner: "xiaomi",
-    src: "proprietary/odm/etc/vintf/manifest/fod-aidl.xml",
     filename_from_src: true,
     sub_dir: "vintf/manifest",
     device_specific: true,
