@@ -28201,7 +28201,6 @@ cc_prebuilt_binary {
                 "proprietary/vendor/bin/hw/vendor.qti.media.c2@1.0-service",
             ],
             shared_libs: [
-                "libshim",
                 "libutils",
                 "libcutils",
                 "liblog",
@@ -28239,7 +28238,6 @@ cc_prebuilt_binary {
                 "proprietary/vendor/bin/hw/vendor.qti.media.c2audio@1.0-service",
             ],
             shared_libs: [
-                "libshim",
                 "libutils",
                 "libcutils",
                 "liblog",
