@@ -2964,32 +2964,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "lib_bt_lhdc",
-    owner: "xiaomi",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/lib_bt_lhdc.so",
-            ],
-            shared_libs: [
-                "libcutils",
-                "liblog",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
     name: "lib_misound_asc",
     owner: "xiaomi",
     strip: {
@@ -26123,6 +26097,15 @@ prebuilt_etc_xml {
 }
 
 prebuilt_etc_xml {
+    name: "bttpi-saidl.xml",
+    owner: "xiaomi",
+    src: "proprietary/vendor/etc/vintf/manifest/bttpi-saidl.xml",
+    filename_from_src: true,
+    sub_dir: "vintf/manifest",
+    soc_specific: true,
+}
+
+prebuilt_etc_xml {
     name: "c2_manifest_vendor.xml",
     owner: "xiaomi",
     src: "proprietary/vendor/etc/vintf/manifest/c2_manifest_vendor.xml",
@@ -28610,14 +28593,6 @@ sh_binary {
     owner: "xiaomi",
     src: "proprietary/vendor/bin/init.qcom.class_core.sh",
     filename: "init.qcom.class_core.sh",
-    soc_specific: true,
-}
-
-sh_binary {
-    name: "init.qcom.early_boot",
-    owner: "xiaomi",
-    src: "proprietary/vendor/bin/init.qcom.early_boot.sh",
-    filename: "init.qcom.early_boot.sh",
     soc_specific: true,
 }
 

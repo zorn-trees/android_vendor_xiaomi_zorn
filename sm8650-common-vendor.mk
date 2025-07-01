@@ -8,7 +8,11 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_COPY_FILES += \
     vendor/xiaomi/sm8650-common/proprietary/odm/etc/MESubway_prebuilt.db:$(TARGET_COPY_OUT_ODM)/etc/MESubway_prebuilt.db \
     vendor/xiaomi/sm8650-common/proprietary/odm/etc/audio/silent-3sec.wav:$(TARGET_COPY_OUT_ODM)/etc/audio/silent-3sec.wav \
-    vendor/xiaomi/sm8650-common/proprietary/odm/etc/audio/sku_pineapple/mixer_paths_overlay_dynamic.xml:$(TARGET_COPY_OUT_ODM)/etc/audio/sku_pineapple/mixer_paths_overlay_dynamic.xml \
+    vendor/xiaomi/sm8650-common/proprietary/odm/etc/audio_policy_engine_configuration.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_policy_engine_configuration.xml \
+    vendor/xiaomi/sm8650-common/proprietary/odm/etc/audio_policy_engine_default_stream_volumes.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_policy_engine_default_stream_volumes.xml \
+    vendor/xiaomi/sm8650-common/proprietary/odm/etc/audio_policy_engine_product_strategies.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_policy_engine_product_strategies.xml \
+    vendor/xiaomi/sm8650-common/proprietary/odm/etc/audio_policy_engine_stream_volumes.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_policy_engine_stream_volumes.xml \
+    vendor/xiaomi/sm8650-common/proprietary/odm/etc/backend_conf.xml:$(TARGET_COPY_OUT_ODM)/etc/backend_conf.xml \
     vendor/xiaomi/sm8650-common/proprietary/odm/etc/df_default.xml:$(TARGET_COPY_OUT_ODM)/etc/df_default.xml \
     vendor/xiaomi/sm8650-common/proprietary/odm/etc/dolby/dax-default-spatializer.xml:$(TARGET_COPY_OUT_ODM)/etc/dolby/dax-default-spatializer.xml \
     vendor/xiaomi/sm8650-common/proprietary/odm/etc/dolby/dax-default.xml:$(TARGET_COPY_OUT_ODM)/etc/dolby/dax-default.xml \
@@ -207,7 +211,8 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/sm8650-common/proprietary/vendor/etc/audio/sku_pineapple/resourcemanager_pineapple_qrd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_pineapple/resourcemanager_pineapple_qrd.xml \
     vendor/xiaomi/sm8650-common/proprietary/vendor/etc/audio/sku_pineapple/resourcemanager_pineapple_qrd_sku2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_pineapple/resourcemanager_pineapple_qrd_sku2.xml \
     vendor/xiaomi/sm8650-common/proprietary/vendor/etc/audio_cloud_control_white_list.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_cloud_control_white_list.xml \
-    vendor/xiaomi/sm8650-common/proprietary/vendor/etc/batching.conf:$(TARGET_COPY_OUT_VENDOR)/etc/batching.conf \
+    vendor/xiaomi/sm8650-common/proprietary/vendor/etc/audio_diag.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/audio_diag.cfg \
+    vendor/xiaomi/sm8650-common/proprietary/vendor/etc/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
     vendor/xiaomi/sm8650-common/proprietary/vendor/etc/card-defs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/card-defs.xml \
     vendor/xiaomi/sm8650-common/proprietary/vendor/etc/charger_diag.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/charger_diag.cfg \
     vendor/xiaomi/sm8650-common/proprietary/vendor/etc/charger_fw_fstab.qti:$(TARGET_COPY_OUT_VENDOR)/etc/charger_fw_fstab.qti \
@@ -248,6 +253,7 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/sm8650-common/proprietary/vendor/etc/data/dsi_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/data/dsi_config.xml \
     vendor/xiaomi/sm8650-common/proprietary/vendor/etc/data/nicm_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/data/nicm_config.xml \
     vendor/xiaomi/sm8650-common/proprietary/vendor/etc/default-permissions/com.qualcomm.qti.cne.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default-permissions/com.qualcomm.qti.cne.xml \
+    vendor/xiaomi/sm8650-common/proprietary/vendor/etc/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
     vendor/xiaomi/sm8650-common/proprietary/vendor/etc/display/DPU1010.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display/DPU1010.xml \
     vendor/xiaomi/sm8650-common/proprietary/vendor/etc/display/DPU1020.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display/DPU1020.xml \
     vendor/xiaomi/sm8650-common/proprietary/vendor/etc/display/DPU10__.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display/DPU10__.xml \
@@ -395,6 +401,7 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/sm8650-common/proprietary/vendor/etc/lm/sPLHFeature.xml:$(TARGET_COPY_OUT_VENDOR)/etc/lm/sPLHFeature.xml \
     vendor/xiaomi/sm8650-common/proprietary/vendor/etc/lowi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/lowi.conf \
     vendor/xiaomi/sm8650-common/proprietary/vendor/etc/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
+    vendor/xiaomi/sm8650-common/proprietary/vendor/etc/media_codecs_c2_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_c2_audio.xml \
     vendor/xiaomi/sm8650-common/proprietary/vendor/etc/media_codecs_dolby_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_dolby_audio.xml \
     vendor/xiaomi/sm8650-common/proprietary/vendor/etc/media_codecs_performance_pineapple.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance_pineapple.xml \
     vendor/xiaomi/sm8650-common/proprietary/vendor/etc/media_codecs_performance_pineapple_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance_pineapple_vendor.xml \
@@ -479,6 +486,10 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/sm8650-common/proprietary/vendor/etc/sap.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sap.conf \
     vendor/xiaomi/sm8650-common/proprietary/vendor/etc/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config \
     vendor/xiaomi/sm8650-common/proprietary/vendor/etc/seccomp_policy/atfwd@2.0.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/atfwd@2.0.policy \
+    vendor/xiaomi/sm8650-common/proprietary/vendor/etc/seccomp_policy/c2audio.vendor.base-arm.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/c2audio.vendor.base-arm.policy \
+    vendor/xiaomi/sm8650-common/proprietary/vendor/etc/seccomp_policy/c2audio.vendor.base-arm64.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/c2audio.vendor.base-arm64.policy \
+    vendor/xiaomi/sm8650-common/proprietary/vendor/etc/seccomp_policy/c2audio.vendor.ext-arm.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/c2audio.vendor.ext-arm.policy \
+    vendor/xiaomi/sm8650-common/proprietary/vendor/etc/seccomp_policy/c2audio.vendor.ext-arm64.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/c2audio.vendor.ext-arm64.policy \
     vendor/xiaomi/sm8650-common/proprietary/vendor/etc/seccomp_policy/codec2.vendor.base-arm64.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/codec2.vendor.base-arm64.policy \
     vendor/xiaomi/sm8650-common/proprietary/vendor/etc/seccomp_policy/codec2.vendor.ext-arm64.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/codec2.vendor.ext-arm64.policy \
     vendor/xiaomi/sm8650-common/proprietary/vendor/etc/seccomp_policy/gnss@2.0-base.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/gnss@2.0-base.policy \
@@ -630,7 +641,6 @@ PRODUCT_PACKAGES += \
     lib_bt_aptx \
     lib_bt_ble \
     lib_bt_bundle \
-    lib_bt_lhdc \
     lib_misound_asc \
     libadaptlaunch \
     libadm \
@@ -1448,6 +1458,7 @@ PRODUCT_PACKAGES += \
     android.hardware.secure_element.xml \
     android.hardware.security.keymint-service-qti.xml \
     atfwd-saidl.xml \
+    bttpi-saidl.xml \
     c2_manifest_vendor.xml \
     c2_manifest_vendor_audio.xml \
     dataconnection-saidl.xml \
@@ -1571,7 +1582,6 @@ PRODUCT_PACKAGES += \
     init.kernel.post_boot-pineapple_default_2_3_2_1 \
     init.kernel.post_boot \
     init.qcom.class_core \
-    init.qcom.early_boot \
     init.qcom.post_boot \
     init.qcom.sensors \
     init.qcom \
