@@ -1656,9 +1656,7 @@ PRODUCT_PACKAGES += \
     libTrustedUIAIDL \
     libVoiceSdk \
     libWlanServiceJni \
-    lib_bt_aptx \
-    lib_bt_ble \
-    lib_bt_bundle \
+    lib_bt_lhdc \
     lib_misound_asc \
     libadaptlaunch \
     libadm \
@@ -1670,12 +1668,8 @@ PRODUCT_PACKAGES += \
     libaodoptfeature \
     libapengine \
     libappclassifier \
-    libar-acdb \
-    libar-gpr \
-    libar-gsl \
     libar-pal \
     libarmemlog \
-    libats \
     libaudio_log_utils \
     libaudiocloudctrl \
     libbacklight-calib \
@@ -1708,7 +1702,6 @@ PRODUCT_PACKAGES += \
     libcodec2_store_dolby \
     libconfigdb \
     libcpion \
-    libcustomva_intf \
     libcv_common \
     libdapparamstorage \
     libdataitems \
@@ -1766,7 +1759,6 @@ PRODUCT_PACKAGES += \
     libhdr_backlight_adapter \
     libhdr_tm \
     libhistogram \
-    libhotword_intf \
     libidl \
     libintervmipc \
     libizat_client_api \
@@ -1809,8 +1801,6 @@ PRODUCT_PACKAGES += \
     liblowi_common \
     liblowi_wifihal \
     liblqe \
-    liblx-ar_util \
-    liblx-osal \
     libmasc \
     libmcs \
     libmdmdetect \
@@ -2197,7 +2187,6 @@ PRODUCT_PACKAGES += \
     vendor.qti.diaghal@1.0-vendor \
     vendor.qti.esepowermanager@1.0 \
     vendor.qti.gnss-V6-ndk \
-    vendor.qti.hardware.AGMIPC@1.0-impl \
     vendor.qti.hardware.ListenSoundModel@1.0-impl \
     vendor.qti.hardware.ListenSoundModel@1.0 \
     vendor.qti.hardware.alarm-V1-ndk \
