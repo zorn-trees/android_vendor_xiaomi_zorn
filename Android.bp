@@ -811,6 +811,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/hw/audio.primary.pineapple.so",
             ],
             shared_libs: [
+                "libaudioroute-v34",
                 "libbase",
                 "liblog",
                 "libcutils",
@@ -3175,7 +3176,7 @@ cc_prebuilt_library_shared {
             shared_libs: [
                 "liblog",
                 "libcutils",
-                "libaudioroute",
+                "libaudioroute-v34",
                 "libarmemlog",
                 "libmisight",
                 "libxlog",
@@ -3315,7 +3316,7 @@ cc_prebuilt_library_shared {
             shared_libs: [
                 "liblog",
                 "libexpat",
-                "libaudioroute",
+                "libaudioroute-v34",
                 "libcutils",
                 "libutilscallstack",
                 "libaudioroute_ext",
@@ -4047,6 +4048,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libcne.so",
             ],
             shared_libs: [
+                "libbinder_shim",
                 "libcutils",
                 "liblog",
                 "libdiag",
@@ -4745,6 +4747,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libdlbdsservice.so",
             ],
             shared_libs: [
+                "libstagefright_foundation-v33",
                 "libutils",
                 "libcutils",
                 "libstagefright_foundation",
@@ -4780,6 +4783,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libdlbpreg.so",
             ],
             shared_libs: [
+                "libstagefright_foundation-v33",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -9788,6 +9792,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libqcc_sdk.so",
             ],
             shared_libs: [
+                "libbinder_shim",
                 "libcutils",
                 "liblog",
                 "libutils",
@@ -11738,6 +11743,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libqms_client.so",
             ],
             shared_libs: [
+                "libbinder_shim",
                 "liblog",
                 "libbinder",
                 "libutils",
@@ -11765,6 +11771,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libqms_xiaomi.so",
             ],
             shared_libs: [
+                "libbinder_shim",
                 "liblog",
                 "libbinder",
                 "libutils",
@@ -17560,6 +17567,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/soundfx/libdlbvol.so",
             ],
             shared_libs: [
+                "libstagefright_foundation-v33",
                 "liblog",
                 "libutils",
                 "libcutils",
@@ -17678,6 +17686,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/soundfx/libhwdap.so",
             ],
             shared_libs: [
+                "libstagefright_foundation-v33",
                 "libspatializerparamstorage",
                 "liblog",
                 "libutils",
@@ -18374,6 +18383,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/vendor.libdpmframework.so",
             ],
             shared_libs: [
+                "libbinder_shim",
                 "libhidlbase_shim",
                 "libdiag",
                 "libbinder",
@@ -23845,6 +23855,32 @@ cc_prebuilt_library_shared {
                 "libcutils",
                 "liblog",
                 "libdiag_system",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libbeluga",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/libbeluga.so",
+            ],
+            shared_libs: [
+                "libbase",
+                "liblog",
                 "libc++",
                 "libc",
                 "libm",
@@ -31833,7 +31869,7 @@ cc_prebuilt_library_shared {
                 "libmialgoengine",
                 "libsync",
                 "libutils",
-                "libui",
+                "libui-v34",
                 "libhidlbase",
                 "libprocessgroup",
                 "libcom.xiaomi.attribute",
@@ -33802,7 +33838,7 @@ cc_prebuilt_library_shared {
                 "liblog",
                 "libcutils",
                 "libtinyalsa",
-                "libaudioroute",
+                "libaudioroute-v34",
                 "libexpat",
                 "libc++",
                 "libc",
@@ -41229,6 +41265,7 @@ cc_prebuilt_binary {
                 "proprietary/vendor/bin/cnd",
             ],
             shared_libs: [
+                "libbinder_shim",
                 "libdiag",
                 "libcutils",
                 "liblog",
@@ -43620,6 +43657,7 @@ cc_prebuilt_binary {
                 "proprietary/vendor/bin/qcc-vendor",
             ],
             shared_libs: [
+                "libbinder_shim",
                 "libcutils",
                 "liblog",
                 "libutils",
@@ -43818,6 +43856,7 @@ cc_prebuilt_binary {
                 "proprietary/vendor/bin/qms",
             ],
             shared_libs: [
+                "libbinder_shim",
                 "libavservices_minijail",
                 "libcutils",
                 "liblog",
@@ -45171,6 +45210,7 @@ cc_prebuilt_binary {
                 "proprietary/vendor/bin/xtra-daemon",
             ],
             shared_libs: [
+                "libbinder_shim",
                 "libutils",
                 "libcutils",
                 "libcrypto",
