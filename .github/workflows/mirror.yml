@@ -19,7 +19,13 @@ jobs:
         run: |
           git clone https://codeberg.org/vherawidatama/android_vendor_xiaomi_zorn.git repo
 
-      - name: Track large files
+      - name: Setup git identity
+        run: |
+          cd repo
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+      - name: Track large files with LFS
         run: |
           cd repo
           git lfs track "*.so" "*.img" "*.bin"
@@ -32,4 +38,4 @@ jobs:
         run: |
           cd repo
           git remote add github https://x-access-token:${GITHUB_TOKEN}@github.com/zorn-trees/android_vendor_xiaomi_zorn.git
-          git push --force github main
+          git push --force github master
