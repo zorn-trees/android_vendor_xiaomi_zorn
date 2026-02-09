@@ -38,4 +38,4 @@ jobs:
         run: |
           cd repo
           git remote add github https://x-access-token:${GITHUB_TOKEN}@github.com/zorn-trees/android_vendor_xiaomi_zorn.git
-          git push --force github master
+          git push --force github lineage-23.0
