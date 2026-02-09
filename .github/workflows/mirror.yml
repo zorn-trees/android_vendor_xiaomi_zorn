@@ -1,4 +1,4 @@
-name: Mirror Codeberg Repo (LFS)
+name: Import Codeberg Repo with Git LFS
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ permissions:
   contents: write
 
 jobs:
-  mirror:
+  migrate:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,17 +25,23 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-      - name: Track large files with LFS
+      - name: Track large files
         run: |
           cd repo
           git lfs track "*.so" "*.img" "*.bin"
           git add .gitattributes
-          git commit -m "Track large files with Git LFS" || true
+          git commit -m "Configure Git LFS" || true
 
-      - name: Push to GitHub
+      - name: Migrate existing history to LFS
+        run: |
+          cd repo
+          git lfs migrate import --include="*.so,*.img,*.bin" --everything
+
+      - name: Push rewritten history to GitHub
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd repo
           git remote add github https://x-access-token:${GITHUB_TOKEN}@github.com/zorn-trees/android_vendor_xiaomi_zorn.git
-          git push --force github lineage-23.0
+          git push --force --all github
+          git push --force --tags github
