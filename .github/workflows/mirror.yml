@@ -25,17 +25,13 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-      - name: Track large files
+      - name: Migrate entire history to LFS
         run: |
           cd repo
-          git lfs track "*.so" "*.img" "*.bin"
-          git add .gitattributes
-          git commit -m "Configure Git LFS" || true
-
-      - name: Migrate existing history to LFS
-        run: |
-          cd repo
-          git lfs migrate import --include="*.so,*.img,*.bin" --everything
+          git lfs migrate import \
+            --include="*.so,*.img,*.bin" \
+            --everything \
+            --yes
 
       - name: Push rewritten history to GitHub
         env:
