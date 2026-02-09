@@ -1,4 +1,4 @@
-name: Mirror Codeberg Repo
+name: Mirror Codeberg Repo (LFS)
 
 on:
   workflow_dispatch:
@@ -11,14 +11,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clone Codeberg repo (mirror)
+      - name: Install Git LFS
         run: |
-          git clone --mirror https://codeberg.org/vherawidatama/android_vendor_xiaomi_zorn.git repo.git
+          git lfs install
 
-      - name: Push mirror to GitHub
+      - name: Clone Codeberg repo
+        run: |
+          git clone https://codeberg.org/vherawidatama/android_vendor_xiaomi_zorn.git repo
+
+      - name: Track large files
+        run: |
+          cd repo
+          git lfs track "*.so" "*.img" "*.bin"
+          git add .gitattributes
+          git commit -m "Track large files with Git LFS" || true
+
+      - name: Push to GitHub
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cd repo.git
-          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/zorn-trees/android_vendor_xiaomi_zorn.git
-          git push --mirror origin
+          cd repo
+          git remote add github https://x-access-token:${GITHUB_TOKEN}@github.com/zorn-trees/android_vendor_xiaomi_zorn.git
+          git push --force github main
