@@ -1,0 +1,21 @@
+name: Mirror Codeberg Repo
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone Codeberg repo (mirror)
+        run: |
+          git clone --mirror https://codeberg.org/vherawidatama/android_vendor_xiaomi_zorn.git repo.git
+
+      - name: Push mirror to GitHub
+        run: |
+          cd repo.git
+          git push --mirror https://github.com/zorn-trees/android_vendor_xiaomi_zorn.git
