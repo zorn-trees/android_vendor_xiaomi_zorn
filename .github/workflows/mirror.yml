@@ -16,6 +16,9 @@ jobs:
           git clone --mirror https://codeberg.org/vherawidatama/android_vendor_xiaomi_zorn.git repo.git
 
       - name: Push mirror to GitHub
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd repo.git
-          git push --mirror https://github.com/zorn-trees/android_vendor_xiaomi_zorn.git
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/zorn-trees/android_vendor_xiaomi_zorn.git
+          git push --mirror origin
